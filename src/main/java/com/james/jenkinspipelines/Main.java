@@ -10,9 +10,6 @@ public class Main {
         System.out.println("Subtract: " + subtractOfNumbers(5,8));
         System.out.println("Multiply: " + multiplyOfNumbers(5,8));
         System.out.println("Divide: " + divideOfNumbers(50,8));
-
-
-
     }
 
     public static int sumOfNumbers(int num1, int num2){
