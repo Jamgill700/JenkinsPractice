@@ -14,7 +14,7 @@ public class TestTwoNumbers {
 
     @Test
     public void testSum(){
-        Assert.assertEquals(13, numbersMain.sumOfNumbers(5, 8));
+        Assert.assertEquals(14, numbersMain.sumOfNumbers(5, 8));
     }
 
     @Test
