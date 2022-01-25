@@ -3,19 +3,30 @@ pipeline{
     agent any
 
     stages{
-        stage('Checkout'){
+
+        stage('Compile Stage'){
             steps{
-                git url: 'https://github.com/Jamgill700/JenkinsPractice.git',
-                branch: 'master'
+                shell 'mvn clean compile install'
             }
         }
 
-        stage('Build'){
+        stage('Test Stage'){
             steps{
-                sh: './mvnw clean package'
+                shell 'mvn surefire:test -Dtest=*.java'
             }
         }
 
+        stage('Package Stage'){
+            steps{
+                shell 'mvn clean package'
+            }
+        }
+
+        stage('User Control Stage'){
+            steps{
+                input 'mDo you want to deploy?'
+            }
+        }
 
     }
 }
