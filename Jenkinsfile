@@ -1,32 +1,32 @@
-pipeline{
+#!/usr/bin/env groovy
+
+pipeline {
+
+//       parameters{
+//       string(name:'param1',  defaultValue:''  ?: '')
+//       string(name:'param2',  defaultValue:''  ?: 'test')
+//       string(name:'param3',  defaultValue:''  ?: '')
+//   }
 
     agent any
-
-    stages{
-
-        stage('Compile Stage'){
-            steps{
-                shell 'mvn clean compile install'
+    stages {
+        stage('Version') {
+            steps {
+                sh 'pwsh --version'
             }
         }
 
-        stage('Test Stage'){
-            steps{
-                shell 'mvn surefire:test -Dtest=*.java'
+        stage('hello') {
+            steps {
+                sh 'pwsh test.ps1'
             }
         }
 
-        stage('Package Stage'){
-            steps{
-                shell 'mvn clean package'
-            }
-        }
-
-        stage('User Control Stage'){
-            steps{
-                input 'mDo you want to deploy?'
-            }
-        }
-
+        // stage('Deploy') {
+        //     steps {
+        //         sh 'echo ${param3}'
+        //     }
+        // }
     }
+
 }

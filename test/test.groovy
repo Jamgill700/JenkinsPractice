@@ -18,7 +18,7 @@ pipeline {
 
         stage('hello') {
             steps {
-                sh 'pwsh testps1'
+                sh 'pwsh test.ps1'
             }
         }
 
