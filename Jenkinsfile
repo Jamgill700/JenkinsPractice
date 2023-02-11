@@ -12,13 +12,14 @@ pipeline {
     stages {
         stage('Version') {
             steps {
-                sh 'pwsh --version'
+                sh 'python3 --version'
             }
         }
 
         stage('hello') {
             steps {
-                sh 'pwsh test.ps1'
+                // sh 'pwsh test.ps1'
+                sh 'python3 hello.py'
             }
         }
 
